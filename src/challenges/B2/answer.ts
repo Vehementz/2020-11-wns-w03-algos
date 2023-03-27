@@ -14,17 +14,14 @@
 export default function ({ events }: { events: EventWithCategory[] }): string[] {
 
 
-    let category: any = [];
+    let category: Array<Array<string>> = [];
 
     category = events.map(({categories}) => ({categories}).categories)
 
 
-
-
-
     let i = 0;
     let j = 0;
-    let elementsCategory: any = [];
+    let elementsCategory: Array<string>  = [];
 
     for (i = 0; i < category.length; i++) {
         // console.log(category[i])
@@ -37,14 +34,13 @@ export default function ({ events }: { events: EventWithCategory[] }): string[] 
     }
 
 
-
-    let filteredElementsCategory: any = [];
+    let filteredElementsCategory: Array<string> = [];
     filteredElementsCategory = elementsCategory.filter(function(item, pos) {
         return elementsCategory.indexOf(item) == pos;
     })
 
 
-    let sortedCategory = filteredElementsCategory.sort((a, b) => a.localeCompare(b));
+    let sortedCategory: Array<string> = filteredElementsCategory.sort((a, b) => a.localeCompare(b));
       
 
     return sortedCategory;
